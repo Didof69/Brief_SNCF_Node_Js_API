@@ -1,0 +1,3 @@
+<div class="zone-plants"> 
+      <app-card *ngFor="let plant of plants" [plant]="plant" [routerLink]="['/plant',plant.id]"></app-card>
+</div>
