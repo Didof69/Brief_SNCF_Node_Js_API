@@ -1,0 +1,20 @@
+.zone-card {
+    padding: 10px;
+}
+
+.zone-btn {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.btn {
+    margin: 10px;
+}
+
+.zone-signup {
+    margin: 0;
+}
+
+a {
+    color: rgba(0, 112, 62, 0.93)
+}

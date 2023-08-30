@@ -9,18 +9,21 @@ img {
     vertical-align: center;
 }
 
-.soins{
+.soins {
     display: flex;
     vertical-align: center;
     justify-content: space-between;
 }
 
-.zone-card{
+.zone-card {
     display: flex;
 }
 
-.info{
+.info {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
+
+/* .zone-btn {
+} */

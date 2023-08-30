@@ -1,1 +1,71 @@
-<p>plant-create works!</p>
+<div class="container mt-3">
+  <h1 class="title">🪴 Super Natural Crops and Flowers</h1>
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="card" style="width: 40rem">
+        <div class="zone-card">
+          <form>
+            <fieldset>
+              <legend>Créer une plante</legend>
+
+              <div class="form-group">
+                <label for="nom">Entrez le nom de la plante</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nom"
+                  placeholder="ex : Cactus"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="selection">Ensoleillement</label>
+                <select id="selection" class="form-control">
+                  <option value="peu">Peu</option>
+                  <option value="moyen">Moyen</option>
+                  <option value="beaucoup">Beaucoup</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="selection">Arrosage</label>
+                <select id="selection" class="form-control">
+                  <option value="0">Pas d'arrosage</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="selection">Catégorie</label>
+                <select id="selection" class="form-control">
+                  <option value="bonsaïs">Bonzaïs</option>
+                  <option value="cactus et plantes grasses">Cactus et plantes grasses</option>
+                  <option value="orchidés">Orchidés</option>
+                  <option value="palmiers d intérieur">Palmiers d'intérieurs</option>
+                  <option value="plantes fleuries">Plantes fleuries</option>
+                  <option value="plantes vertes">Plantes vertes</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="nom">Entrez une image</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nom"
+                  value="src\assets\appareil-photo-barre.jpg"
+                />
+              </div>
+            </fieldset>
+            <div class="zone-btn">
+                <button type="submit" class="btn btn-outline-success">Créer</button>
+            </div>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

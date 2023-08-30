@@ -21,8 +21,8 @@ const routes: Routes = [
   { path: 'admin/log', component: LogUserComponent },
   { path: 'admin/createplant', component: PlantCreateComponent },
   { path: 'plant/:plantId', component: PlantDetailsComponent },
-  { path: 'plant/:plantId/update', component: PlantUpdateComponent },
-  { path: 'plant/:plantId/delete', component: PlantDeleteComponent },
+  { path: 'plant/update/:plantId', component: PlantUpdateComponent },
+  { path: 'plant/delete/:plantId', component: PlantDeleteComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
