@@ -32,7 +32,9 @@ export class PageHomeComponent implements OnInit {
 
   ngOnInit() {
     this.plantService.getPlants().subscribe((plants) => {
-      this.plantsToDisplay = plants;
+      console.log("dataapi recupéré",plants);
+      
+      this.plantsToDisplay = plants.data;
       this.plantsToDisplayFilter = [...this.plantsToDisplay];
       this.tabCategorie = [
         ...new Set(

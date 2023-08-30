@@ -21,14 +21,16 @@ export class PlantDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     const routeParam = this.route.snapshot.paramMap;
-    console.log(routeParam);
+    // console.log(routeParam);
     const plantIdFromRoute = Number(routeParam.get('plantId'));
-    console.log(plantIdFromRoute);
+    // console.log(plantIdFromRoute);
 
-    console.log(PlantService);
+    // console.log(PlantService);
 
     this.plantService.getPlantsById(plantIdFromRoute).subscribe((plant) => {
-      this.plant = plant;
+      console.log('ce que je recupère', plant.data);
+      
+      this.plant = plant.data;
       console.log(this.plant);
       this.waterValue = this.plant.arrosage
       this.sunValue = this.plant.soleil;

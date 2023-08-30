@@ -18,6 +18,12 @@ import { HeartComponent } from './icones/heart/heart.component';
 import { WaterComponent } from './icones/water/water.component';
 import { SunComponent } from './icones/sun/sun.component';
 import { PlantDetailsComponent } from './components/plant-details/plant-details.component';
+import { PlantUpdateComponent } from './components/plant-update/plant-update.component';
+import { PlantDeleteComponent } from './components/plant-delete/plant-delete.component';
+import { PlantCreateComponent } from './components/plant-create/plant-create.component';
+import { SignupUserComponent } from './components/signup-user/signup-user.component';
+import { LogUserComponent } from './components/log-user/log-user.component';
+import { LoginUserComponent } from './components/login-user/login-user.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +42,12 @@ import { PlantDetailsComponent } from './components/plant-details/plant-details.
     WaterComponent,
     SunComponent,
     PlantDetailsComponent,
+    PlantUpdateComponent,
+    PlantDeleteComponent,
+    PlantCreateComponent,
+    SignupUserComponent,
+    LogUserComponent,
+    LoginUserComponent,
   ],
 
   imports: [
