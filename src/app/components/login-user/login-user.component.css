@@ -18,3 +18,8 @@
 a {
     color: rgba(0, 112, 62, 0.93)
 }
+
+legend {
+    text-align: center;
+    color: rgba(0, 112, 62, 0.93)
+}

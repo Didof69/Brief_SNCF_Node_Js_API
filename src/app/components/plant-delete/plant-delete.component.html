@@ -4,9 +4,29 @@
     <div class="row justify-content-center">
       <div class="card" style="width: 40rem">
         <div class="zone-card">
+
+          <div>
             <h4>Etes vous sur(e) de vouloir supprimer cette plante ?</h4>
+            <h5>{{ plant.nom }}</h5>
+            <p>id#{{ plant.id }}</p>
+            <img
+              class="card-img-top"
+              src="{{ plant.image }}"
+              alt="Card image cap"
+            />
+          </div>
+
+          <div>
             <button type="submit" class="btn btn-outline-danger">Oui</button>
-            <button type="submit" class="btn btn-outline-secondary">Non</button>
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              [routerLink]="['/plant/', plant.id]"
+            >
+              Non
+            </button>
+          </div>
+
         </div>
       </div>
     </div>

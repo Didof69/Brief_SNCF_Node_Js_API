@@ -10,3 +10,12 @@
 .btn {
     margin: 10px;
 }
+
+legend {
+    text-align: center;
+    color: rgba(0, 112, 62, 0.93)
+}
+
+a {
+    color: rgba(0, 112, 62, 0.93)
+}

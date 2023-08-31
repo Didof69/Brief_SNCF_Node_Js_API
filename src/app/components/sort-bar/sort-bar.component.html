@@ -12,7 +12,10 @@
       (click)="this.newSortEvent.emit($event)"
     >
       Alpha
-      <i class="fi fi-rr-arrow-small-down" *ngIf="compteurValue == 'alpha1'"></i>
+      <i
+        class="fi fi-rr-arrow-small-down"
+        *ngIf="compteurValue == 'alpha1'"
+      ></i>
       <i class="fi fi-rr-arrow-small-up" *ngIf="compteurValue == 'alpha2'"></i>
     </button>
 
@@ -27,7 +30,7 @@
       <i class="fi fi-rr-arrow-small-down" *ngIf="compteurValue == 'eau1'"></i>
       <i class="fi fi-rr-arrow-small-up" *ngIf="compteurValue == 'eau2'"></i>
     </button>
-    
+
     <button
       id="buttonSoleil"
       type="button"
@@ -36,7 +39,10 @@
       (click)="this.newSortEvent.emit($event)"
     >
       Ensoleillement
-      <i class="fi fi-rr-arrow-small-down" *ngIf="compteurValue == 'soleil1'"></i>
+      <i
+        class="fi fi-rr-arrow-small-down"
+        *ngIf="compteurValue == 'soleil1'"
+      ></i>
       <i class="fi fi-rr-arrow-small-up" *ngIf="compteurValue == 'soleil2'"></i>
     </button>
   </div>

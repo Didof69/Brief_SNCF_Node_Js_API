@@ -1,5 +1,6 @@
 img {
     width: 80%;
+    height:80%;
 }
 
 .en-tete {
@@ -25,5 +26,12 @@ img {
     justify-content: space-around;
 }
 
-/* .zone-btn {
-} */
+.btn {
+    margin: 10px;
+}
+
+.zone-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

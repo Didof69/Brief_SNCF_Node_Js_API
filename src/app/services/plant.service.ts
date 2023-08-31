@@ -17,4 +17,6 @@ export class PlantService {
   getPlantsById(plantId: number): Observable<DataOnePlant> {
     return this.http.get<DataOnePlant>(`http://localhost:3000/api/plants/${plantId}`);
   }
+
+  
 }

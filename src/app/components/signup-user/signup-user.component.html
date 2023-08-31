@@ -9,11 +9,12 @@
             <div class="form-group">
               <label for="pseudo">Pseudo</label>
               <input
-                type="email"
+                type="text"
                 class="form-control"
                 id="pseudo"
                 aria-describedby="emailHelp"
                 placeholder="Votre pseudo"
+                required
               />
             </div>
             <div class="form-group">
@@ -24,6 +25,7 @@
                 id="email"
                 aria-describedby="emailHelp"
                 placeholder="email@email.com"
+                required
               />
             </div>
             <div class="form-group">
@@ -33,6 +35,7 @@
                 class="form-control"
                 id="password"
                 placeholder="Mot de passe"
+                required
               />
             </div>
             <div class="zone-btn">
@@ -40,6 +43,14 @@
             </div>
     
           </form>
+
+          <div class="text-center">
+          <p class="zone-signup">
+            Déjà inscrit ? <a href="#!" [routerLink]="['/admin']"
+              >Se connecter</a
+            >
+          </p>
+        </div>
         </div>
       </div>
     </div>

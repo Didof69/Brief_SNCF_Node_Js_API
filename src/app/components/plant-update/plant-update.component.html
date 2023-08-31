@@ -14,22 +14,24 @@
                   type="text"
                   class="form-control"
                   id="nom"
-                  placeholder="ex : Cactus"
+                  value="{{ plant.nom }}"
                 />
               </div>
 
               <div class="form-group">
-                <label for="selection">Ensoleillement</label>
-                <select id="selection" class="form-control">
-                  <option value="peu">Peu</option>
-                  <option value="moyen">Moyen</option>
-                  <option value="beaucoup">Beaucoup</option>
+                <label for="selectionSoleil">Ensoleillement</label>
+                <select id="selectionSoleil" class="form-control">
+                  <option value="{{ plant.soleil }}">{{ plant.soleil }}</option>
+                  <option value="peu">peu</option>
+                  <option value="moyen">moyen</option>
+                  <option value="beaucoup">beaucoup</option>
                 </select>
               </div>
 
               <div class="form-group">
-                <label for="selection">Arrosage</label>
-                <select id="selection" class="form-control">
+                <label for="selectionArrosage">Arrosage</label>
+                <select id="selectionArrosage" class="form-control">
+                  <option value="{{ plant.arrosage }}">{{ plant.arrosage }}</option>
                   <option value="0">Pas d'arrosage</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -38,37 +40,36 @@
               </div>
 
               <div class="form-group">
-                <label for="selection">Catégorie</label>
-                <select id="selection" class="form-control">
-                  <option value="bonsaïs">Bonzaïs</option>
+                <label for="selectionCategorie">Catégorie</label>
+                <select id="selectionCategorie" class="form-control">
+                    <option value="{{ plant.categorie}}">{{ plant.categorie}}</option>
+                  <option value="bonsaïs">bonzaïs</option>
                   <option value="cactus et plantes grasses">
-                    Cactus et plantes grasses
+                    cactus et plantes grasses
                   </option>
-                  <option value="orchidés">Orchidés</option>
+                  <option value="orchidés">orchidés</option>
                   <option value="palmiers d intérieur">
-                    Palmiers d'intérieurs
+                    palmiers d'intérieurs
                   </option>
-                  <option value="plantes fleuries">Plantes fleuries</option>
-                  <option value="plantes vertes">Plantes vertes</option>
+                  <option value="plantes fleuries">plantes fleuries</option>
+                  <option value="plantes vertes">plantes vertes</option>
                 </select>
               </div>
 
               <div class="form-group">
-                <label for="nom">Image</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="nom"
-                  value="src\assets\appareil-photo-barre.jpg"
-                />
+                <label for="selectionImage">Image</label>
+                <select id="selectionImage" class="form-control">
+                  <option value="{{ plant.image }}">{{ plant.image }}</option>
+                  <option value="src\assets\appareil-photo-barre.jpg">Pas d'image</option>
+                </select>
               </div>
             </fieldset>
             <div class="zone-btn">
 
-                    <button type="submit" class="btn btn-outline-danger">
+            <button type="submit" class="btn btn-outline-danger">
               Mettre à jour
             </button>
-            <button type="submit" class="btn btn-outline-secondary">
+            <button type="button" class="btn btn-outline-secondary" [routerLink]="['/plant/',plant.id]">
               Annuler
             </button>
             </div>

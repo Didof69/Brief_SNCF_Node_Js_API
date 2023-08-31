@@ -25,11 +25,11 @@
 
           <div class="zone-soins">
             <div class="soins">
-              <span>Arrosage : </span>
+              <p>Arrosage : </p>
               <app-water [waterValue]="waterValue"></app-water>
             </div>
             <div class="soins">
-                 <span>Ensoleillement : </span>
+                 <p>Ensoleillement : </p>
               <app-sun [sunValue]="sunValue"></app-sun>
             </div>
           </div>
@@ -37,9 +37,10 @@
         </div>
 
         <div class="zone-btn">
-          <button type="submit" class="btn btn-outline-success" [routerLink]="['/plant/update',plant.id]">Mettre à jour</button>
-          <button type="submit" class="btn btn-outline-success" [routerLink]="['/plant/delete',plant.id]">Supprimer</button>
+          <button type="button" class="btn btn-outline-success" [routerLink]="['/plant/update',plant.id]">Mettre à jour</button>
+          <button type="button" class="btn btn-outline-success" [routerLink]="['/plant/delete',plant.id]">Supprimer</button>
         </div>
+
       </div>
     </div>
   </div>
