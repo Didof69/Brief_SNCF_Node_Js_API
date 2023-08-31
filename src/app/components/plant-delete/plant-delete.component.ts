@@ -11,11 +11,11 @@ import { PlantService } from 'src/app/services/plant.service';
   
 export class PlantDeleteComponent {
   plant!: Plant;
-
+  
   constructor(
     private route: ActivatedRoute,
     private plantService: PlantService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     const routeParam = this.route.snapshot.paramMap;
@@ -27,7 +27,18 @@ export class PlantDeleteComponent {
       console.log('ce que je recupère', plant.data);
 
       this.plant = plant.data;
-      console.log(this.plant);
     });
   }
+
+  deletePlant(plantId: number) {
+    console.log('id plante à supprimer :', plantId);
+    let retourApi: string = "";
+
+    this.plantService.deletePlant(plantId).subscribe(data=>{
+      retourApi = data.message
+      console.log(retourApi);
+      alert(data.message); 
+    })
+  }
 }
+

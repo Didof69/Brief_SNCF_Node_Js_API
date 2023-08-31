@@ -11,16 +11,18 @@
               <div class="form-group">
                 <label for="nom">Entrez le nom de la plante</label>
                 <input
+                  #nom
                   type="text"
                   class="form-control"
                   id="nom"
                   placeholder="ex : Cactus"
+                  required
                 />
               </div>
 
               <div class="form-group">
-                <label for="selection">Ensoleillement</label>
-                <select id="selection" class="form-control">
+                <label for="selectionSoleil">Ensoleillement</label>
+                <select #selectionSoleil id="selectionSoleil" class="form-control">
                   <option value="peu">Peu</option>
                   <option value="moyen">Moyen</option>
                   <option value="beaucoup">Beaucoup</option>
@@ -28,8 +30,8 @@
               </div>
 
               <div class="form-group">
-                <label for="selection">Arrosage</label>
-                <select id="selection" class="form-control">
+                <label for="selectionArrosage">Arrosage</label>
+                <select #selectionArrosage id="selectionArrosage" class="form-control">
                   <option value="0">Pas d'arrosage</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -38,8 +40,8 @@
               </div>
 
               <div class="form-group">
-                <label for="selection">Catégorie</label>
-                <select id="selection" class="form-control">
+                <label for="selectionCategorie">Catégorie</label>
+                <select #selectionCategorie id="selectionCategorie" class="form-control">
                   <option value="bonsaïs">Bonzaïs</option>
                   <option value="cactus et plantes grasses">Cactus et plantes grasses</option>
                   <option value="orchidés">Orchidés</option>
@@ -52,15 +54,17 @@
               <div class="form-group">
                 <label for="nom">Entrez une image</label>
                 <input
+                  #image
                   type="text"
                   class="form-control"
                   id="nom"
-                  value="src\assets\appareil-photo-barre.jpg"
+                  value="https://img.freepik.com/vecteurs-premium/icone-appareil-photo-barre-symbole-photographie-desactive-icone-appareil-photo-barre-dispositif-imagerie-capture-image-inactif-icone-ligne-vectorielle-pour-entreprises-publicite_855332-1934.jpg?w=740"
+                  disabled
                 />
               </div>
             </fieldset>
             <div class="zone-btn">
-                <button type="submit" class="btn btn-outline-success">Créer</button>
+                <button type="button" class="btn btn-outline-success" (click)="createPlant(nom.value, selectionSoleil.value,+selectionArrosage.value,selectionCategorie.value,image.value)" [routerLink]="['/admin/createplant']">Créer</button>
                 <button type="button" class="btn btn-outline-secondary" [routerLink]="['/admin/log']">Annuler</button>
             </div>
             

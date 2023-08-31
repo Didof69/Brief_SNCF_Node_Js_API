@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Plant } from 'src/app/models/plant';
+import { UpdatePlant } from 'src/app/models/updatePlant';
 import { PlantService } from 'src/app/services/plant.service';
 
 @Component({
@@ -27,12 +28,34 @@ export class PlantUpdateComponent {
     // console.log('plantservice : ', PlantService);
 
     this.plantService.getPlantsById(plantIdFromRoute).subscribe((plant) => {
-      console.log('ce que je recupère', plant.data);
+      // console.log('ce que je recupère', plant.data);
 
       this.plant = plant.data;
-      console.log(this.plant);
+      // console.log(this.plant);
     });
   }
 
-  updatePlant() {}
+  updatePlant(nom: string, soleil: string, arrosage: number, categorie: string, image: string) {
+    let retourApi!: UpdatePlant;
+    let infoPlant = {
+        nom : nom,
+    soleil : soleil,
+    arrosage : arrosage,
+   categorie : categorie,
+    image : image,
+    }
+
+    console.log(infoPlant);
+    
+    // alert(nom + soleil + arrosage + categorie + image);
+    
+    this.plantService.updatePlant(this.plant.id,infoPlant).subscribe((data) => {
+      retourApi = data.data;
+      console.log(retourApi);
+      if (data.status == 'OK') {
+            alert(`La plante id ${this.plant.id} a été modifiée.`);
+      }
+
+    });
+  }
 }

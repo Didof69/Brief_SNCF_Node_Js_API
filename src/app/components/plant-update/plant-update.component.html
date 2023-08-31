@@ -11,6 +11,7 @@
               <div class="form-group">
                 <label for="nom">Nom de la plante</label>
                 <input
+                  #nom
                   type="text"
                   class="form-control"
                   id="nom"
@@ -20,7 +21,7 @@
 
               <div class="form-group">
                 <label for="selectionSoleil">Ensoleillement</label>
-                <select id="selectionSoleil" class="form-control">
+                <select #selectionSoleil id="selectionSoleil" class="form-control">
                   <option value="{{ plant.soleil }}">{{ plant.soleil }}</option>
                   <option value="peu">peu</option>
                   <option value="moyen">moyen</option>
@@ -30,7 +31,7 @@
 
               <div class="form-group">
                 <label for="selectionArrosage">Arrosage</label>
-                <select id="selectionArrosage" class="form-control">
+                <select #selectionArrosage id="selectionArrosage" class="form-control">
                   <option value="{{ plant.arrosage }}">{{ plant.arrosage }}</option>
                   <option value="0">Pas d'arrosage</option>
                   <option value="1">1</option>
@@ -41,7 +42,7 @@
 
               <div class="form-group">
                 <label for="selectionCategorie">Catégorie</label>
-                <select id="selectionCategorie" class="form-control">
+                <select #selectionCategorie id="selectionCategorie" class="form-control">
                     <option value="{{ plant.categorie}}">{{ plant.categorie}}</option>
                   <option value="bonsaïs">bonzaïs</option>
                   <option value="cactus et plantes grasses">
@@ -58,15 +59,15 @@
 
               <div class="form-group">
                 <label for="selectionImage">Image</label>
-                <select id="selectionImage" class="form-control">
+                <select #selectionImage id="selectionImage" class="form-control">
                   <option value="{{ plant.image }}">{{ plant.image }}</option>
-                  <option value="src\assets\appareil-photo-barre.jpg">Pas d'image</option>
+                  <option value="https://img.freepik.com/vecteurs-premium/icone-appareil-photo-barre-symbole-photographie-desactive-icone-appareil-photo-barre-dispositif-imagerie-capture-image-inactif-icone-ligne-vectorielle-pour-entreprises-publicite_855332-1934.jpg?w=740">Pas d'image</option>
                 </select>
               </div>
             </fieldset>
             <div class="zone-btn">
 
-            <button type="submit" class="btn btn-outline-danger">
+            <button type="button" class="btn btn-outline-danger" (click)="updatePlant(nom.value, selectionSoleil.value,+selectionArrosage.value,selectionCategorie.value,selectionImage.value)" [routerLink]="['/plant/',plant.id]">
               Mettre à jour
             </button>
             <button type="button" class="btn btn-outline-secondary" [routerLink]="['/plant/',plant.id]">
