@@ -9,10 +9,10 @@
             <div class="form-group">
               <label for="pseudo">Pseudo</label>
               <input
+                #pseudo
                 type="text"
                 class="form-control"
                 id="pseudo"
-                aria-describedby="emailHelp"
                 placeholder="Votre pseudo"
                 required
               />
@@ -20,6 +20,7 @@
             <div class="form-group">
               <label for="email">Adresse Email</label>
               <input
+              #email
                 type="email"
                 class="form-control"
                 id="email"
@@ -31,6 +32,7 @@
             <div class="form-group">
               <label for="password">Mot de Passe</label>
               <input
+              #password
                 type="password"
                 class="form-control"
                 id="password"
@@ -39,7 +41,7 @@
               />
             </div>
             <div class="zone-btn">
-                      <button type="submit" class="btn btn-outline-success">Inscription</button>
+                      <button type="button" class="btn btn-outline-success" (click)="signUpUser(pseudo.value, email.value,password.value)">Inscription</button>
             </div>
     
           </form>

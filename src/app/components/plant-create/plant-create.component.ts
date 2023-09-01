@@ -31,7 +31,7 @@ export class PlantCreateComponent {
 
     console.log(infoPlant);
     if (nom == '') {
-        alert(`Merci de renseigné le nom de la plante`);
+        alert(`Merci de renseigner le nom de la plante`);
     } else {
           this.plantService
       .createPlant(infoPlant)
