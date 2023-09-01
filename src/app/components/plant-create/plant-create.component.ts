@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Plant } from 'src/app/models/plant';
+import { LocalService } from 'src/app/services/local.service';
 import { PlantService } from 'src/app/services/plant.service';
 
 @Component({
@@ -11,8 +12,9 @@ export class PlantCreateComponent {
   plant!: Plant;
 
   constructor(
-    private plantService: PlantService
+    private plantService: PlantService,
   ) { }
+
   
   createPlant(
     nom: string,

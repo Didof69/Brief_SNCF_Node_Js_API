@@ -1,17 +1,27 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { DataApi } from '../models/dataApi';
 import { DataOnePlant } from '../models/dataOnePlant';
 import { ReponseApi } from '../models/reponseApi';
 import { UpdatePlant } from '../models/updatePlant';
+import { LocalService } from './local.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PlantService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private localStorage: LocalService) { }
 
+  // methode pour initialiser le headers avec une Authorization
+  setHeaders() {
+    const jwtToken = this.localStorage.getData('token');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${jwtToken}`,
+    });
+    return headers;
+  }
+  
   getPlants(): Observable<DataApi> {
     return this.http.get<DataApi>('http://localhost:3000/api/plants');
   }
@@ -23,7 +33,7 @@ export class PlantService {
   }
 
   deletePlant(plantId: number): Observable<ReponseApi> {
-    console.log('plante à supprimer dans plantservice', plantId);
+    // console.log('plante à supprimer dans plantservice', plantId);
 
     return this.http.delete<ReponseApi>(
       `http://localhost:3000/api/plants/${plantId}`
@@ -31,12 +41,7 @@ export class PlantService {
   }
 
   updatePlant(plantId: number, plant: UpdatePlant): Observable<DataOnePlant> {
-    console.log(
-      'plante à modifier dans plantservice',
-      plantId,
-      'info update :',
-      plant
-    );
+    // console.log('plante à modifier dans plantservice', plantId,'info update :', plant);
 
     return this.http.put<DataOnePlant>(
       `http://localhost:3000/api/plants/${plantId}`,
@@ -45,6 +50,12 @@ export class PlantService {
   }
 
   createPlant(plant: UpdatePlant): Observable<DataOnePlant> {
-    return this.http.post<DataOnePlant>(`http://localhost:3000/api/plants`, plant);
+    const headers = this.setHeaders()
+    console.log('headers',headers,'token',this.localStorage.getData('token'));
+    
+    return this.http.post<DataOnePlant>(
+      `http://localhost:3000/api/plants`,
+      plant,
+      { headers });
   }
 }
