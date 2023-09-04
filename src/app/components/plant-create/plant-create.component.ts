@@ -10,12 +10,12 @@ import { PlantService } from 'src/app/services/plant.service';
 })
 export class PlantCreateComponent {
   plant!: Plant;
-
+  statusCreation = false;
+  
   constructor(
     private plantService: PlantService,
   ) { }
 
-  
   createPlant(
     nom: string,
     soleil: string,
@@ -32,6 +32,7 @@ export class PlantCreateComponent {
     };
 
     console.log(infoPlant);
+
     if (nom == '') {
         alert(`Merci de renseigner le nom de la plante`);
     } else {
@@ -39,9 +40,12 @@ export class PlantCreateComponent {
       .createPlant(infoPlant)
       .subscribe((data) => {
         if (data.status == 'OK') {
+          this.statusCreation = true;
           alert(`La plante id ${data.data.id} a été créée.`);
         }
       });
+
+      
   }
     }
 

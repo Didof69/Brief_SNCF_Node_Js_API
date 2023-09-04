@@ -13,11 +13,6 @@ export class LoginUserComponent {
   constructor(private userService: UserService,
               private localStorage: LocalService) { }
   
-  onSubmit(myForm : any) {
-    console.log(myForm);
-    
-  }
-
   loginUser(email: string, password: string) {
     let login = {
       email: email,

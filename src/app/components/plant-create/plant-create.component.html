@@ -63,9 +63,12 @@
                 />
               </div>
             </fieldset>
-            <div class="zone-btn">
+            <div *ngIf="!statusCreation"class="zone-btn">
                 <button type="button" class="btn btn-outline-success" (click)="createPlant(nom.value, selectionSoleil.value,+selectionArrosage.value,selectionCategorie.value,image.value)" [routerLink]="['/admin/createplant']">Créer</button>
                 <button type="button" class="btn btn-outline-secondary" [routerLink]="['/admin/log']">Annuler</button>
+            </div>
+            <div *ngIf="statusCreation" class="zone-btn">
+                <button type="submit" class="btn btn-outline-success" [routerLink]="['/home']">Retourner à l'accueil</button>
             </div>
             
           </form>

@@ -45,13 +45,13 @@ export class PlantUpdateComponent {
     image : image,
     }
 
-    console.log(infoPlant);
+    console.log('info plante dans update', infoPlant);
     
     // alert(nom + soleil + arrosage + categorie + image);
     
     this.plantService.updatePlant(this.plant.id,infoPlant).subscribe((data) => {
       retourApi = data.data;
-      console.log(retourApi);
+      console.log('retour api update', retourApi);
       if (data.status == 'OK') {
             alert(`La plante id ${this.plant.id} a été modifiée.`);
       }

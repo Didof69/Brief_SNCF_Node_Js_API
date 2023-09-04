@@ -9,6 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class SignupUserComponent {
   constructor(private userService: UserService) {}
+  statusSignUp = false;
 
   signUpUser(pseudo: string, email: string, password: string) {
     let user = {
@@ -25,7 +26,7 @@ export class SignupUserComponent {
       this.userService.signUp(user).subscribe((data) => {
         if (data.status == 'OK') {
           console.log(data.data);
-          
+          this.statusSignUp = true;
           alert(`Le compte de ${data.data.pseudo} a été créé.`);
         }
       });

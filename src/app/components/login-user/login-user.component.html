@@ -27,7 +27,7 @@
             />
           </div>
           <div class="zone-btn">
-             <button type="button" class="btn btn-outline-success" (click)="loginUser(email.value, password.value)">Connexion</button>
+             <button type="button" class="btn btn-outline-success" (click)="loginUser(email.value, password.value)" [routerLink]="['/admin/log']">Connexion</button>
           </div>
          
         </form>

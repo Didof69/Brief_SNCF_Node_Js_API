@@ -20,7 +20,7 @@
             <div class="form-group">
               <label for="email">Adresse Email</label>
               <input
-              #email
+                #email
                 type="email"
                 class="form-control"
                 id="email"
@@ -32,7 +32,7 @@
             <div class="form-group">
               <label for="password">Mot de Passe</label>
               <input
-              #password
+                #password
                 type="password"
                 class="form-control"
                 id="password"
@@ -40,19 +40,32 @@
                 required
               />
             </div>
-            <div class="zone-btn">
-                      <button type="button" class="btn btn-outline-success" (click)="signUpUser(pseudo.value, email.value,password.value)">Inscription</button>
-            </div>
-    
-          </form>
+            <div *ngIf="!statusSignUp" class="zone-btn">
+              <button
+                type="button"
+                class="btn btn-outline-success"
+                (click)="signUpUser(pseudo.value, email.value, password.value)"
+              >
+                Inscription
+              </button>
 
-          <div class="text-center">
-          <p class="zone-signup">
-            Déjà inscrit ? <a href="#!" [routerLink]="['/admin']"
-              >Se connecter</a
-            >
-          </p>
-        </div>
+              <div class="text-center">
+                <p class="zone-signup">
+                  Déjà inscrit ?
+                  <a href="#!" [routerLink]="['/admin']">Se connecter</a>
+                </p>
+              </div>
+            </div>
+            <div *ngIf="statusSignUp" class="zone-btn">
+              <button
+                type="button"
+                class="btn btn-outline-success"
+                [routerLink]="['/admin']"
+              >
+                Se connecter
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
