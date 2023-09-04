@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Plant } from 'src/app/models/plant';
-import { LocalService } from 'src/app/services/local.service';
 import { PlantService } from 'src/app/services/plant.service';
 
 @Component({
@@ -10,10 +10,10 @@ import { PlantService } from 'src/app/services/plant.service';
 })
 export class PlantCreateComponent {
   plant!: Plant;
-  statusCreation = false;
   
   constructor(
     private plantService: PlantService,
+    private router :Router,
   ) { }
 
   createPlant(
@@ -31,17 +31,17 @@ export class PlantCreateComponent {
       image: image,
     };
 
-    console.log(infoPlant);
+    console.log('info de la plante à créer',infoPlant);
 
     if (nom == '') {
         alert(`Merci de renseigner le nom de la plante`);
     } else {
           this.plantService
       .createPlant(infoPlant)
-      .subscribe((data) => {
-        if (data.status == 'OK') {
-          this.statusCreation = true;
-          alert(`La plante id ${data.data.id} a été créée.`);
+      .subscribe((resp) => {
+        if (resp.status == 'OK') {
+          alert(`La plante id ${resp.data.id} a été créée.`);
+          this.router.navigate([`/plant/${resp.data.id}`]);
         }
       });
 

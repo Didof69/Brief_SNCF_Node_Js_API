@@ -12,19 +12,13 @@
             <img
               class="card-img-top"
               src="{{ plant.image }}"
-              alt="Card image cap"
+              alt="image de la plant {{ plant.nom }}"
             />
           </div>
 
           <div>
-            <button type="submit" class="btn btn-outline-danger" (click)='deletePlant(plant.id)' [routerLink]="['/home']">Oui</button>
-            <button
-              type="button"
-              class="btn btn-outline-secondary"
-              [routerLink]="['/plant/', plant.id]"
-            >
-              Non
-            </button>
+            <button type="submit" class="btn btn-outline-danger" (click)='deletePlant(plant.id)'>Oui</button>
+            <button type="submit" class="btn btn-outline-secondary" [routerLink]="['/plant/', plant.id]">Non</button>
           </div>
 
         </div>

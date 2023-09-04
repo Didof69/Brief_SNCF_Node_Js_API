@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Plant } from 'src/app/models/plant';
 import { UpdatePlant } from 'src/app/models/updatePlant';
 import { PlantService } from 'src/app/services/plant.service';
@@ -10,13 +10,14 @@ import { PlantService } from 'src/app/services/plant.service';
   styleUrls: ['./plant-update.component.css'],
 })
 export class PlantUpdateComponent {
-  @Output() updatedPlant= new EventEmitter();
+  @Output() updatedPlant = new EventEmitter();
 
   plant!: Plant;
 
   constructor(
     private route: ActivatedRoute,
-    private plantService: PlantService
+    private plantService: PlantService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -35,27 +36,33 @@ export class PlantUpdateComponent {
     });
   }
 
-  updatePlant(nom: string, soleil: string, arrosage: number, categorie: string, image: string) {
+  updatePlant(
+    nom: string,
+    soleil: string,
+    arrosage: number,
+    categorie: string,
+    image: string
+  ) {
     let retourApi!: UpdatePlant;
     let infoPlant = {
-        nom : nom,
-    soleil : soleil,
-    arrosage : arrosage,
-   categorie : categorie,
-    image : image,
-    }
+      nom: nom,
+      soleil: soleil,
+      arrosage: arrosage,
+      categorie: categorie,
+      image: image,
+    };
 
-    console.log('info plante dans update', infoPlant);
-    
-    // alert(nom + soleil + arrosage + categorie + image);
-    
-    this.plantService.updatePlant(this.plant.id,infoPlant).subscribe((data) => {
-      retourApi = data.data;
-      console.log('retour api update', retourApi);
-      if (data.status == 'OK') {
-            alert(`La plante id ${this.plant.id} a été modifiée.`);
-      }
+    // console.log('info plante dans update', infoPlant);
 
-    });
+    this.plantService
+      .updatePlant(this.plant.id, infoPlant)
+      .subscribe((resp) => {
+        retourApi = resp.data;
+        console.log('retour api update', retourApi);
+        if (resp.status == 'OK') {
+          alert(`La plante id ${this.plant.id} a été modifiée.`);
+          this.router.navigate([`/plant/${this.plant.id}`]);
+        }
+      });
   }
 }

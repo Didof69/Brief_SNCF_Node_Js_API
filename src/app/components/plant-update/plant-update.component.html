@@ -67,10 +67,10 @@
             </fieldset>
             <div class="zone-btn">
 
-            <button type="button" class="btn btn-outline-danger" (click)="updatePlant(nom.value, selectionSoleil.value,+selectionArrosage.value,selectionCategorie.value,selectionImage.value)" [routerLink]="['/plant/',plant.id]">
+            <button type="submit" class="btn btn-outline-danger" (click)="updatePlant(nom.value, selectionSoleil.value,+selectionArrosage.value,selectionCategorie.value,selectionImage.value)">
               Mettre à jour
             </button>
-            <button type="button" class="btn btn-outline-secondary" [routerLink]="['/plant/',plant.id]">
+            <button type="submit" class="btn btn-outline-secondary" [routerLink]="['/plant/',plant.id]">
               Annuler
             </button>
             </div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 
@@ -8,8 +9,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./signup-user.component.css'],
 })
 export class SignupUserComponent {
-  constructor(private userService: UserService) {}
-  statusSignUp = false;
+  constructor(private userService: UserService, private router:Router) {}
 
   signUpUser(pseudo: string, email: string, password: string) {
     let user = {
@@ -18,16 +18,16 @@ export class SignupUserComponent {
       password: password,
     };
 
-    console.log(user);
+    // console.log(user);
 
     if (pseudo == '' || email == '' || password == '') {
-      alert(`Merci de renseignr tous les champs`);
+      alert(`Merci de renseigner tous les champs`);
     } else {
       this.userService.signUp(user).subscribe((data) => {
         if (data.status == 'OK') {
-          console.log(data.data);
-          this.statusSignUp = true;
-          alert(`Le compte de ${data.data.pseudo} a été créé.`);
+          // console.log(data.data);
+          alert(`Le compte de ${data.data.pseudo} a été créé. Merci de vous connecter`);
+          this.router.navigate([`/admin`]);
         }
       });
     }

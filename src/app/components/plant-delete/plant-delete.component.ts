@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Plant } from 'src/app/models/plant';
 import { PlantService } from 'src/app/services/plant.service';
 
@@ -14,7 +14,8 @@ export class PlantDeleteComponent {
   
   constructor(
     private route: ActivatedRoute,
-    private plantService: PlantService
+    private plantService: PlantService,
+    private router :Router,
   ) { }
 
   ngOnInit(): void {
@@ -34,10 +35,11 @@ export class PlantDeleteComponent {
     console.log('id plante à supprimer :', plantId);
     let retourApi: string = "";
 
-    this.plantService.deletePlant(plantId).subscribe(data=>{
-      retourApi = data.message
+    this.plantService.deletePlant(plantId).subscribe(resp=>{
+      retourApi = resp.message
       console.log(retourApi);
-      alert(data.message); 
+      alert(resp.message); 
+      this.router.navigate([`/`]);
     })
   }
 }
